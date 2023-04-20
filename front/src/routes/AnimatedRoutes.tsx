@@ -3,7 +3,7 @@ import App from "../App";
 import { Login } from "../pages/Login";
 import { AnimatePresence } from 'framer-motion'
 import { useAuthStore } from '../store/auth';
-import { Register } from '../pages/Register';
+import { Characters } from '../pages/Characters';
 import { Character } from '../pages/Character';
 
 export function AnimatedRoutes() {
@@ -20,7 +20,8 @@ export function AnimatedRoutes() {
     <AnimatePresence mode='wait'>
       <RoutesGroup location={location} key={location.pathname}>
         <Route path='/' element={renderBasedOnAuthStatus()} />
-        <Route path='/character' element={renderBasedOnAuthStatus(<Character />)}/>
+        <Route path='/characters' element={renderBasedOnAuthStatus(<Characters />)}/>
+        <Route path='/character/:id' element={renderBasedOnAuthStatus(<Character />)}/>
         <Route path='*' element={renderBasedOnAuthStatus(<Navigate to={'/'} />)} />
       </RoutesGroup>
     </AnimatePresence>

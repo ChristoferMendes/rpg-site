@@ -10,7 +10,7 @@ import { Text } from "../../Text";
 export function HomeCharacters() {
   return (
     <HStack className="justify-center mt-10">
-      <Link to='/character'>
+      <Link to='/characters'>
         <Tilt>
           <VStack className="bg-purple-950 w-32 h-32 rounded-xl items-center justify-center space-y-3">
             <Text className="font-medium">CHARACTERS</Text>
