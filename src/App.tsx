@@ -12,7 +12,6 @@ function App() {
 
   const handleClickOutsiteOfLogoutQuestionMark = () => {
     if (!logoutQuestionMark || loggedOut) return
-    console.log('TRIGGERED HERE')
 
     hideLogoutQuestionMark()
   }
