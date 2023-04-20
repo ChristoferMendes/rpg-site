@@ -51,7 +51,7 @@ export function Login() {
 
   return (
     <AnimatedPage>
-      <section className="h-screen flex flex-col justify-center">
+      <section className="h-screen flex flex-col justify-center text-white">
         <div className="flex items-center flex-col -translate-y-3 space-y-3">
           <img className="rounded-full w-44" src="https://cdn.discordapp.com/attachments/1083808275436408885/1098235650819498044/Artie_Cahill_rounded_logo_anime_style_pop_color__a_illustration_86d698e7-1fc8-4865-8207-8a4fbe57964e.png" alt="logo" />
           <p className="text-white font-bold text-2xl">COMPANION'S GUILD.</p>
@@ -59,7 +59,7 @@ export function Login() {
         </div>
         <div className="">
           <form onSubmit={handleSubmit} className="flex flex-col mx-12 space-y-8">
-            {isRegister && <Input placeholder="John Doe" id="email" Icon={<BiUser className="text-3xl text-indigo-900 mx-2 translate-x-1" />} />}
+            {isRegister && <Input placeholder="John Doe" id="name" Icon={<BiUser className="text-3xl text-indigo-900 mx-2 translate-x-1" />} />}
             <Input
               placeholder="user@gmail.com"
               type="email"
