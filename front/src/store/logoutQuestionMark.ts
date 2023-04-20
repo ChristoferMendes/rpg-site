@@ -7,6 +7,7 @@ interface LogoutQuestionMarkStore {
     showLogoutQuestionMark: () => void;
     hideLogoutQuestionMark: () => void;
     showLogoutSuccessful: () => void;
+    hideLogout: () => void;
   }
 }
 
@@ -23,6 +24,9 @@ export const useLogoutQuestionMarkStore = create<LogoutQuestionMarkStore>(set =>
       },
       showLogoutSuccessful: () => {
         return set(({ loggedOut: true }))
+      },
+      hideLogout: () => {
+        return set(({ loggedOut: false }))
       }
     }
   }
