@@ -1,3 +1,3 @@
-import { SettingModal } from './SettingModal';
+import SettingModal from './SettingModal';
 
 export { SettingModal };
