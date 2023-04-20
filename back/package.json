@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "npx tsx watch ./src/server.ts",
-    "build": "npx tsx build ./src/server.ts",
+    "build": "npx tsc",
     "start": "node build/server.js"
   },
   "dependencies": {
