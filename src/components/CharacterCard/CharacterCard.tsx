@@ -3,9 +3,9 @@ import { VStack } from "../VStack";
 import { HStack } from "../HStack";
 import { Link } from "react-router-dom";
 
-function CharacterCard({ name, race, id }: { name: string, race: string, id: number }) {
+function CharacterCard({ name, race, idToGoToPage }: { name: string, race: string, idToGoToPage: number }) {
   return (
-    <Link to={`/character/${id}`}>
+    <Link to={`/character/${idToGoToPage}`}>
       <VStack>
         <HStack className="m-3 space-x-5 bg-purple-950">
           <img

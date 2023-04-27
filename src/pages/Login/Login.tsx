@@ -11,7 +11,7 @@ import { AiOutlineLoading3Quarters, AiOutlineMail } from "react-icons/ai";
 
 export function Login() {
   const { actions: { login } } = useAuthStore()
-  const { executeLogin, data } = useUserLoginMutation()
+  const { executeLogin, data: loginData } = useUserLoginMutation()
   const { executeRegister, data: registerData } = useUserRegisterMutation()
   const [isRegister, setIsRegister] = useState(false)
   const { actions: { hideLogout } } = useLogoutQuestionMarkStore()
@@ -40,17 +40,27 @@ export function Login() {
     await executeLogin(email, password)
   }
 
+  const setIdOnLocalStorage = (id: number) => {
+    localStorage.setItem('@id', id.toString())
+  }
+
+  const enterAsGuest = () => {
+    setIdOnLocalStorage(1)
+    login()
+  }
+
   useEffect(() => {
     hideLogout()
-    if (!data) return;
-    console.log(data)
+    if (!loginData) return;
+    setIdOnLocalStorage(loginData.id)
+    
 
     login()
-  }, [data])
+  }, [loginData])
 
   useEffect(() => {
     if (!registerData) return;
-    console.log(registerData)
+    setIdOnLocalStorage(registerData.id)
 
     login()
   }, [registerData])
@@ -86,7 +96,7 @@ export function Login() {
               <button type="button" className="w-full text-gray-300 text-sm" onClick={() => setIsRegister(false)}>Already have a account? Login</button>
             )}
           </form>
-          <button onClick={login} className="w-full text-gray-300 text-sm bg-black mt-5 h-12 hover:bg-zinc-900">Enter as Guest</button>
+          <button onClick={enterAsGuest} className="w-full text-gray-300 text-sm bg-black mt-5 h-12 hover:bg-zinc-900">Enter as Guest</button>
         </div>
       </section>
     </AnimatedPage>
