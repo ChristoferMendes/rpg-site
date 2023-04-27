@@ -14,7 +14,7 @@ export function Characters() {
 
 
   return (
-    <AnimatedPage>
+    <AnimatedPage className="overflow-hidden">
       <div className="text-white">
         <div className='flex flex-col items-center relative h-32'>
           <p className='absolute top-12 text-3xl ml-2 z-10 tracking-widest flex w-full justify-center font-bold text-white'>{text}</p>
