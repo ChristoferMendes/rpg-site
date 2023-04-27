@@ -96,7 +96,7 @@ export function Login() {
               <button type="button" className="w-full text-gray-300 text-sm" onClick={() => setIsRegister(false)}>Already have a account? Login</button>
             )}
           </form>
-          <button onClick={enterAsGuest} className="w-full text-gray-300 text-sm bg-black mt-5 h-12 hover:bg-zinc-900">Enter as Guest</button>
+          {import.meta.env.DEV && <button onClick={enterAsGuest} className="w-full text-gray-300 text-sm bg-black mt-5 h-12 hover:bg-zinc-900">Enter as Guest</button>}
         </div>
       </section>
     </AnimatedPage>
