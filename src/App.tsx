@@ -4,11 +4,11 @@ import { HomeCharacters } from './components/Home/HomeCharacters';
 import { HomeLogout } from './components/Home/HomeLogout';
 import { HomeUserImage } from './components/Home/HomeUserImage';
 import { HomeWelcomeText } from './components/Home/HomeWelcomeText';
-import { HomeDiceSeparator } from './components/HomeDiceSeparator';
+import { DiceSeparator } from './components/DiceSeparator';
 import { useLogoutQuestionMarkStore } from './store/logoutQuestionMark';
 
 function App() {
-  const { logoutQuestionMark, loggedOut, actions: { hideLogoutQuestionMark }} = useLogoutQuestionMarkStore()
+  const { logoutQuestionMark, loggedOut, actions: { hideLogoutQuestionMark } } = useLogoutQuestionMarkStore()
 
   const handleClickOutsiteOfLogoutQuestionMark = () => {
     if (!logoutQuestionMark || loggedOut) return
@@ -24,7 +24,7 @@ function App() {
           <HomeUserImage />
         </div>
         <HomeWelcomeText />
-        <HomeDiceSeparator />
+        <DiceSeparator />
         <HomeCharacters />
         <HomeLogout />
       </div>

@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion'
 import { useAuthStore } from '../store/auth';
 import { Characters } from '../pages/Characters';
 import { Character } from '../pages/Character';
+import { CharacterCreate } from '../pages/CharacterCreate';
 
 export function AnimatedRoutes() {
   const { auth } = useAuthStore()
@@ -22,6 +23,7 @@ export function AnimatedRoutes() {
         <Route path='/' element={renderBasedOnAuthStatus()} />
         <Route path='/characters' element={renderBasedOnAuthStatus(<Characters />)}/>
         <Route path='/character/:id' element={renderBasedOnAuthStatus(<Character />)}/>
+        <Route path='character/create' element={renderBasedOnAuthStatus(<CharacterCreate />)}/>
         <Route path='*' element={renderBasedOnAuthStatus(<Navigate to={'/'} />)} />
       </RoutesGroup>
     </AnimatePresence>

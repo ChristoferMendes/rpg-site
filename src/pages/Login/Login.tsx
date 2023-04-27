@@ -7,7 +7,7 @@ import { useLogoutQuestionMarkStore } from "../../store/logoutQuestionMark";
 import { Input } from "../../components/Input";
 import { BiUser } from "react-icons/bi";
 import { SlLock } from "react-icons/sl";
-import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineLoading3Quarters, AiOutlineMail } from "react-icons/ai";
 
 export function Login() {
   const { actions: { login } } = useAuthStore()
@@ -15,17 +15,21 @@ export function Login() {
   const { executeRegister, data: registerData } = useUserRegisterMutation()
   const [isRegister, setIsRegister] = useState(false)
   const { actions: { hideLogout } } = useLogoutQuestionMarkStore()
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
 
     const { email, password, name } = e.currentTarget.elements as any
 
     if (isRegister) {
-      return handleRegister(email.value, password.value, name.value)
+      handleRegister(email.value, password.value, name.value)
+      return setLoading(false)
     }
 
     handleLogin(email.value, password.value)
+    setLoading(false)
   }
 
   const handleRegister = async (email: string, password: string, name: string) => {
@@ -39,12 +43,14 @@ export function Login() {
   useEffect(() => {
     hideLogout()
     if (!data) return;
+    console.log(data)
 
     login()
   }, [data])
 
   useEffect(() => {
     if (!registerData) return;
+    console.log(registerData)
 
     login()
   }, [registerData])
@@ -71,7 +77,9 @@ export function Login() {
               id="password"
               Icon={<SlLock className="text-3xl text-indigo-900 mx-2 translate-x-1" />}
             />
-            <button title="submit" type="submit" className="bg-purple-950 w-full rounded-xl h-12 text-white">Submit</button>
+            <button title="submit" type="submit" className="bg-purple-950 w-full rounded-xl h-12 text-white">
+              {loading ? <AiOutlineLoading3Quarters className="animate-spin w-full" /> : 'Submit'}
+            </button>
             {!isRegister ? (
               <button type="button" className="w-full text-gray-300 text-sm" onClick={() => setIsRegister(true)}>Don't have an account? Register</button>
             ) : (

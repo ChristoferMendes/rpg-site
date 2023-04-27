@@ -3,7 +3,6 @@ import { api } from "../services/api"
 import { useState } from "react";
 
 const login = async ({ email, password }: { email: string, password: string }) => {
-  console.log(email)
   const res = await api.post('/users/login', { email, password })
 
   return res.data;
@@ -11,7 +10,7 @@ const login = async ({ email, password }: { email: string, password: string }) =
 
 export const useUserLoginMutation = () => {
   const [data, setData] = useState<null | any>(null)
-  const { mutate } = useMutation(['login'], { mutationFn: login, onSuccess: (data) => setData(data)})
+  const { mutate } = useMutation(['login', 'user'], { mutationFn: login, onSuccess: (data) => setData(data)})
 
   const executeLogin = async (email: string, password: string) => {
     mutate({ email, password })

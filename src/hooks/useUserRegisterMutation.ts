@@ -10,7 +10,7 @@ const register = async ({ email, password, name }: { email: string, password: st
 
 export const useUserRegisterMutation = () => {
   const [data, setData] = useState<null | any>(null)
-  const { mutate } = useMutation(['register'], { mutationFn: register, onSuccess: (data) => setData(data)})
+  const { mutate } = useMutation(['register', 'user'], { mutationFn: register, onSuccess: (data) => setData(data)})
 
   const executeRegister = async (email: string, password: string, name: string) => {
     mutate({ email, password, name })

@@ -1,4 +1,4 @@
-export function HomeDiceSeparator() {
+export function DiceSeparator() {
   return (
     <div className='flex justify-between items-center mx-2'>
       <div className='w-40 h-[1px] bg-purple-900' />

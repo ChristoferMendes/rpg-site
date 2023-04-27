@@ -7,4 +7,5 @@ const fetchUser = (id: number) => {
 
 export const useUserQuery = () => {
   const { refetch, data } = useQuery(['user'], { queryFn: (id) => fetchUser })
+
 }
