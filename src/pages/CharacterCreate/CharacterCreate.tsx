@@ -61,8 +61,7 @@ export function CharacterCreate() {
     setRace(selected)
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
     const abilitiesMapped = Object.entries(abilities).map(([key, value]) => ({ name: key, total: value }))
 
     const user_id = localStorage.getItem('@id')
@@ -105,7 +104,7 @@ export function CharacterCreate() {
         <HomeUserImage />
       </div>
       <div className="mx-12">
-        <form onSubmit={handleSubmit}>
+        <form>
           <DropDown options={races as string[]} getSelected={getSelected} icons={racesIcon} />
           <VStack className="mx-10 mt-6">
             <HStack className="justify-between mb-4">
@@ -113,7 +112,7 @@ export function CharacterCreate() {
               <input type="text" title="name" className="w-24" value={name} onChange={(e) => setName(e.target.value)} />
             </HStack>
             {stats.map((item) => (
-              <HStack className="justify-between" key={item}>
+              <HStack className="justify-between select-none" key={item}>
                 <Text>{item}</Text>
                 <HStack className="w-24 justify-between items-center">
                   <CgChevronLeft className="text-white" onClick={() => decreaseAbility(item as keyof typeof abilities)} />
@@ -122,7 +121,7 @@ export function CharacterCreate() {
                 </HStack>
               </HStack>
             ))}
-            <button type="submit" className="text-white bg-vulcal border rounded-sm p-1 border-purple-950 mt-4">Submit</button>
+            <button type="button" onClick={handleSubmit} className="text-white bg-vulcal border rounded-sm p-1 border-purple-950 mt-4">Submit</button>
           </VStack>
         </form>
       </div>
