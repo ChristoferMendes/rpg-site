@@ -1,6 +1,5 @@
 import ReactCardFlip from "react-card-flip";
 import { GiBowArrow, GiMagicHat, GiRunningNinja, GiStrongMan } from "react-icons/gi";
-import { skills } from "../SkillCards/SkillCards";
 import { useState } from "react";
 import { Card } from "../Card";
 import { CardDescription } from "../CardDescription";

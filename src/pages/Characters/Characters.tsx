@@ -7,9 +7,9 @@ import { AnimatedPage } from "../../components/AnimatedPage";
 import { useUserCharactersQuery } from "../../hooks/useUserCharactersQuery";
 
 const text = 'YOUR CHARACTERS';
-const id = localStorage.getItem('@id')
 
 export function Characters() {
+  const id = localStorage.getItem('@id')
   const { data } = useUserCharactersQuery(Number(id) ?? 1)
 
 
