@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "http://cecyber-proto.vercel.app/"
+    }
+  ]
+}
+
