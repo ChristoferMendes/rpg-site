@@ -8,12 +8,16 @@ import { Story } from '../../components/Story';
 import { AnimatedPage } from '../../components/AnimatedPage';
 import { HomeDropdown } from '../../components/HomeDropdown';
 import SettingModal from '../../components/SettingModal/SettingModal';
+import { useCharacterByIdQuery } from '../../hooks/useCharacterByIdQuery';
+import { useParams } from 'react-router-dom';
 
-const race = 'HUMANO'
 
 export function Character() {
   const { currentOption } = useOptionsStore()
+  const { id } = useParams()
+  const { data } = useCharacterByIdQuery(Number(id))
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const race = data?.race
 
   const renderBasedOnCurrentOption = () => {
     if (currentOption === 'ABILITIES') return <Abilities />
@@ -37,7 +41,7 @@ export function Character() {
             <AiFillSetting className='' />
           </div>
           <div className='flex justify-center'>
-            <h1 className='text-2xl'>Zachary</h1>
+            <h1 className='text-2xl'>{data?.name}</h1>
           </div>
           <div className='flex justify-center py-5 relative'>
             <img

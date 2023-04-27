@@ -1,3 +1,5 @@
+import { useParams } from "react-router-dom";
+import { useCharacterByIdQuery } from "../../hooks/useCharacterByIdQuery";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { SkillCards } from "../SkillCards";
 
