@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "http://cecyber-proto.vercel.app/"
+      "destination": "https://rpg-site-ochre.vercel.app/"
     }
   ]
 }
